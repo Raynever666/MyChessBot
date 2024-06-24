@@ -7,6 +7,7 @@
 class Uci {
     public:
         Uci();
+        
         void loop();
 };
 

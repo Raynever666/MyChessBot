@@ -7,15 +7,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add your source files here
 set(SOURCES
 main.cpp
-Board.cpp
-Uci.cpp
+Board/Board.cpp
+Uci/Uci.cpp
 # Add more source files as needed
 )
 
 # Add your header files here
 set(HEADERS
-Board.h
-Uci.h
+Board/Board.h
+Uci/Uci.h
 # Add more header files as needed
 )
 

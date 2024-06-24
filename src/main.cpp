@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-#include "Board.h"
-#include "Uci.h"
+#include "Board/Board.h"
+#include "Uci/Uci.h"
 
 int main() {
     Board board;
