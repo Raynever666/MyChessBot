@@ -7,6 +7,6 @@ using namespace std;
 
 Board::Board() {
     // constructor
-    cout << "Board constructor" << endl;
+    // cout << "Board constructor" << endl;
 
 }
