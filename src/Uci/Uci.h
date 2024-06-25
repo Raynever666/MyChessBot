@@ -12,11 +12,14 @@ using namespace std;
 class Uci {
     public:
         Uci();
+        ~Uci();
         void executeCommand(std::string command);
         void loop();
         void processPosition(std::string parameter);
         void processGo(std::string parameter);
         void processStop();
+
+        bool debug = false;
 
     private:
 

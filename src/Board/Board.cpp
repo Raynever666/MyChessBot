@@ -10,3 +10,8 @@ Board::Board() {
     // cout << "Board constructor" << endl;
 
 }
+
+Board::~Board() {
+    // destructor
+    // cout << "Board destructor" << endl;
+}

@@ -15,6 +15,11 @@ Uci::Uci() {
     // cout << "Uci constructor" << endl;
 }
 
+Uci::~Uci() {
+    // destructor
+    // cout << "Uci destructor" << endl;
+}
+
 // read command
 void Uci::executeCommand(std::string command) {
     // command list map exist as a constant defined in .h file
@@ -57,7 +62,8 @@ void Uci::executeCommand(std::string command) {
             break;
         case 1:
             // debug
-            // internal use only, not compatible with UCI protocol
+            // control wether to print and log debug info
+            debug = true;
             break;
         case 2:
             // isready

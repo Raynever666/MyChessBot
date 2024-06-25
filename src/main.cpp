@@ -5,11 +5,20 @@
 #include "Board/Board.h"
 #include "Uci/Uci.h"
 
-int main() {
+// int main() {
+//     Board board;
+//     Uci uci;
+
+//     uci.loop();
+
+//     return 0;
+// }
+
+// perft driver code
+// ref: https://www.chessprogramming.org/Perft#:~:text=Perft%20is%20mostly%20for%20debugging,functions%20work%20correctly%20or%20not.
+
+int main(){
     Board board;
-    Uci uci;
 
-    uci.loop();
 
-    return 0;
 }
