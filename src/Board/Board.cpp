@@ -26,6 +26,8 @@ void Board::initFenBoard(string fen) {
     // load the piecePlacement string into the respective bitboards
     // and reset all game state variables according to piecePlacement 
 
+    Board::resetBoard();
+
     // load the piece type seen in piecePlacement into a dictionary
     std::map<char, int> pieceTypeFromSymbol = {
         // white pieces
@@ -222,14 +224,12 @@ void Board::initDefaultBoard() {
 void Board::makeMove() {
     // make a move on the board
     // update the board state variables
-    // and generate the legal moves for the next turn
 
 }
 
 void Board::unmakeMove() {
     // unmake a move on the board
     // update the board state variables
-    // and generate the legal moves for the next turn
 
 }
 
