@@ -48,8 +48,7 @@ void Uci::executeCommand(std::string command) {
     try {
         commandIndex = CommandList.at(command);
     } catch (const std::exception &e) {
-        // // an unknown command was entered
-        // cout << "Unrecognised command !!! Either unsupported or incorrect UCI syntax" << endl;
+        // just empty is fine, we will handle it later
     }
 
     // switch case for commandIndex
@@ -72,6 +71,7 @@ void Uci::executeCommand(std::string command) {
         case 3:
             // ucinewgame
             // reset the board
+            // TODO
             //...
             break;
         case 4:
@@ -106,12 +106,15 @@ void Uci::processPosition(std::string parameter){
     // process the parameter
     if (parameter.find("startpos") != std::string::npos) {
         // start a new game
+        // TODO
         int a = 1;
     } else if (parameter.find("fen") != std::string::npos) {
         // set the board to the FEN string
+        // TODO
         int a = 1;
     } else {
         // wrong position command
+        // TODO
         int a = 1;
     }
 
@@ -136,10 +139,12 @@ void Uci::processGo(std::string parameter){
         int movetime = std::stoi(value);
 
         // Perform the search with the given movetime
+        // TODO
         // core.performSearch(movetime);
     } else {
         // Handle other parameters or perform a default search
         int a = 1;
+        // TODO
         // core.performSearch();
     }
     
@@ -150,6 +155,7 @@ void Uci::processGo(std::string parameter){
 void Uci::processStop(){
     // stop the search
     int a = 1;
+    // TODO
     // core.stopSearch();
 }
 

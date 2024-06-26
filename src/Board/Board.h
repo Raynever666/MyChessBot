@@ -5,11 +5,23 @@
 #define BOARD_H
 
 #include <stdint.h>
+#include "string"
 
 class Board {
     public:
         Board();
         ~Board();
+        void initFenBoard(std::string fen);
+        void initDefaultBoard();
+
+        void makeMove();
+        void unmakeMove();
+        void generateLegalMoves();
+
+        void printBoard();
+        void printFen();
+
+        void resetBoard();
 
     private:
         // bitboard notation
@@ -31,25 +43,34 @@ class Board {
         */
         // therefore the value would be 0b0000000011111111...0
 
-        uint64_t whitePawns;
-        uint64_t whiteKnights;
-        uint64_t whiteBishops;
-        uint64_t whiteRooks;
-        uint64_t whiteQueens;
-        uint64_t whiteKing;
+        uint64_t whitePawns = 0;
+        uint64_t whiteKnights = 0;
+        uint64_t whiteBishops = 0;
+        uint64_t whiteRooks = 0;
+        uint64_t whiteQueens = 0;
+        uint64_t whiteKing = 0;
 
-        uint64_t blackPawns;
-        uint64_t blackKnights;
-        uint64_t blackBishops;
-        uint64_t blackRooks;
-        uint64_t blackQueens;
-        uint64_t blackKing;
+        uint64_t blackPawns = 0;
+        uint64_t blackKnights = 0;
+        uint64_t blackBishops = 0;
+        uint64_t blackRooks = 0;
+        uint64_t blackQueens = 0;
+        uint64_t blackKing = 0;
 
         // game state (castling rights, en passant square, 50 move counter, side to move)
-        uint8_t castlingRights;
-        uint8_t enPassantSquare;
-        uint8_t fiftyMoveCounter;
-        uint8_t sideToMove;
+        uint8_t sideToMove = 0;
+
+        uint8_t castlingRights = 0;
+
+        uint64_t enPassantSquare = 0;
+
+        // The number of half moves since the last capture or pawn advance, 
+        // used for the fifty-move rule.
+        uint8_t halfMoveClock = 0;
+
+        // The number of the full moves. 
+        // It starts at 1 and is incremented after Black's move.
+        uint8_t fullMoveNumber = 0; 
 
 };
 
