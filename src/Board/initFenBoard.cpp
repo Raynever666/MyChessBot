@@ -160,7 +160,6 @@ void Board::initFenBoard(string fen) {
                 break;
         }
     }
-
     // convert the enPassantSquare string to bitboard representation (an integer)
     // the en passant in fen represent the square where the pawn can en-passant
     // for example after move 1. e4, the en passant square would be e3
@@ -170,18 +169,16 @@ void Board::initFenBoard(string fen) {
     // and 0 everywhere else
 
     // if there is no en passant square, all bit would be 0
-    for (int i = 0; i < enPassantSquareStr.length(); i++) {
-        if (enPassantSquareStr[i] == '-') {
-            enPassantSquare = 0;
-        } else {
-            // some bit manipulation to get the correct square
-            // on the 64 bit integer
-            file = 7 - (enPassantSquareStr[i] - 'a');
-            rank = enPassantSquareStr[i + 1] - '1';
-            enPassantSquare = 1ULL << (rank * 8 + file);
-            break;
-        }
+    if (enPassantSquareStr[0] == '-') {
+        enPassantSquare = 0;
+    } else {
+        // some bit manipulation to get the correct square
+        // on the 64 bit integer
+        file = 7 - (enPassantSquareStr[0] - 'a');
+        rank = enPassantSquareStr[1] - '1';
+        enPassantSquare = 1ULL << (rank * 8 + file);
     }
+
 
     // convert the halfMoveClock string to bitboard representation (an integer)
     // just a number no bit manipulation needed :)
