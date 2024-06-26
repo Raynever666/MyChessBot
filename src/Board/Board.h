@@ -11,17 +11,27 @@ class Board {
     public:
         Board();
         ~Board();
-        void initFenBoard(std::string fen);
-        void initDefaultBoard();
 
-        void makeMove();
-        void unmakeMove();
+        // on initFenBoard.cpp
+        void initFenBoard(std::string fen);
+
+        // on generateLegalMoves.cpp
         void generateLegalMoves();
 
+        // on printBoard.cpp
         void printBoard();
+
+        // initDefaultBoard.cpp
+        void initDefaultBoard();
+
+        // on Board.cpp
+        void makeMove();
+        void unmakeMove();
+
         void printFen();
 
         void resetBoard();
+
 
     private:
         // bitboard notation

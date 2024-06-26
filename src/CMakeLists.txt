@@ -8,6 +8,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(SOURCES
 main.cpp
 Board/Board.cpp
+Board/initDefaultBoard.cpp
+Board/initFenBoard.cpp
+Board/printBoard.cpp
+Board/resetBoard.cpp
 Uci/Uci.cpp
 # Add more source files as needed
 )
