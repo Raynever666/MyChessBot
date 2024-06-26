@@ -59,7 +59,7 @@ void Board::initFenBoard(string fen) {
     fen = fen.substr(fen.find(" ") + 1);
 
     // split the sixth " " into the full move number string
-    string fullMoveNumber = fen.substr(0, fen.find(" "));
+    string fullMoveNumberStr = fen.substr(0, fen.find(" "));
 
     // loop through the piecePlacement string until a " "
     // piecePlacement notation start at top rank (a8) and goes to bottom rank (h1)
@@ -130,11 +130,9 @@ void Board::initFenBoard(string fen) {
     }
 
     // convert the activeColor string to bitboard representation (an integer)
-    if (sideToMoveStr == "w") {
-        sideToMove = 0;
-    } else {
-        sideToMove = 1;
-    }
+    // 0 for white, 1 for black
+    // no if-branch
+    whiteToMove = sideToMoveStr == "w";
 
     // convert the castlingRights string to bitboard representation (an integer)
     // in total there are 16 (2^4) possible castling rights
@@ -149,16 +147,16 @@ void Board::initFenBoard(string fen) {
     for (int i = 0; i < castlingRightsStr.length(); i++) {
         switch (castlingRightsStr[i]) {
             case 'K':
-                castlingRights |= 0b0001;
+                whiteCastleKingSide = true;
                 break;
             case 'Q':
-                castlingRights |= 0b0010;
+                whiteCastleQueenSide = true;
                 break;
             case 'k':
-                castlingRights |= 0b0100;
+                blackCastleKingSide = true;
                 break;
             case 'q':
-                castlingRights |= 0b1000;
+                blackCastleQueenSide = true;
                 break;
         }
     }
@@ -181,6 +179,7 @@ void Board::initFenBoard(string fen) {
             file = 7 - (enPassantSquareStr[i] - 'a');
             rank = enPassantSquareStr[i + 1] - '1';
             enPassantSquare = 1ULL << (rank * 8 + file);
+            break;
         }
     }
 
@@ -190,5 +189,6 @@ void Board::initFenBoard(string fen) {
 
     // convert the fullMoveNumber string to bitboard representation (an integer)
     // just a number no bit manipulation needed :)
-    fullMoveNumber = stoi(fullMoveNumber);
+    fullMoveNumber = stoi(fullMoveNumberStr);
+
 }
