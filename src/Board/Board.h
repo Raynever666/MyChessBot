@@ -41,7 +41,7 @@ class Board {
           2 1 1 1 1 1 1 1 1
           1 0 0 0 0 0 0 0 0
         */
-        // therefore the value would be 0b0000000011111111...0
+        // therefore the value would be 0b0000 0000 1111 1111...0
 
         uint64_t whitePawns = 0;
         uint64_t whiteKnights = 0;
