@@ -16,7 +16,7 @@ class Board {
         void initFenBoard(std::string fen);
 
         // on generateLegalMoves.cpp
-        void generateLegalMoves();
+        uint8_t generateLegalMoves(Board* possibleLegalBoards);
 
         // on printBoard.cpp
         void printBoard();
@@ -68,19 +68,23 @@ class Board {
         uint64_t blackKing = 0;
 
         // game state (castling rights, en passant square, 50 move counter, side to move)
-        uint8_t sideToMove = 0;
+        bool whiteToMove = false;
 
-        uint8_t castlingRights = 0;
+        bool whiteCastleKingSide = false;
+        bool whiteCastleQueenSide = false;
+
+        bool blackCastleKingSide = false;
+        bool blackCastleQueenSide = false;
 
         uint64_t enPassantSquare = 0;
 
         // The number of half moves since the last capture or pawn advance, 
         // used for the fifty-move rule.
-        uint8_t halfMoveClock = 0;
+        int halfMoveClock = 0;
 
         // The number of the full moves. 
         // It starts at 1 and is incremented after Black's move.
-        uint8_t fullMoveNumber = 0; 
+        int fullMoveNumber = 0; 
 
 };
 

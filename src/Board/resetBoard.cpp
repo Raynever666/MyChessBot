@@ -22,8 +22,14 @@ void Board::resetBoard() {
     blackQueens = 0;
     blackKing = 0;
 
-    sideToMove = 0;
-    castlingRights = 0;
+    whiteToMove = false;
+
+    whiteCastleKingSide = false;
+    whiteCastleQueenSide = false;
+
+    blackCastleKingSide = false;
+    blackCastleQueenSide = false;
+
     enPassantSquare = 0;
     halfMoveClock = 0;
     fullMoveNumber = 0;
