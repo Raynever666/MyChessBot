@@ -37,7 +37,6 @@ uint8_t Board::generateLegalMoves(Board *possibleLegalBoards) {
     }
 }
 
-// ref: https://github.com/official-stockfish/Stockfish/blob/master/src/position.cpp#L485
 uint8_t Board::generateWhiteLegalMoves(Board *possibleLegalBoards){
 
     // 1. generate all the pseudo-legal moves (bitshift without regards to rules) (include castling only)
