@@ -68,6 +68,7 @@ class Board {
         uint64_t blackKing = 0;
 
         // game state (castling rights, en passant square, 50 move counter, side to move)
+
         bool whiteToMove = false;
 
         bool whiteCastleKingSide = false;
@@ -84,8 +85,11 @@ class Board {
 
         // The number of the full moves. 
         // It starts at 1 and is incremented after Black's move.
-        int fullMoveNumber = 0; 
+        int fullMoveNumber = 0;
 
+        uint8_t generateWhiteLegalMoves(Board *possibleLegalBoards);
+
+        uint8_t generateBlackLegalMoves(Board *possibleLegalBoards);
 };
 
 #endif
